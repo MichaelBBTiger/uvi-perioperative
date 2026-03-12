@@ -1,0 +1,74 @@
+archetype (adl_version=1.4; uid=597fa332-95ea-4c97-8bff-45593995f2df)
+	openEHR-EHR-COMPOSITION.perioperative_common.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::zh]>
+
+description
+	original_author = <
+		["date"] = <"2026-03-12">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["zh"] = <
+			language = <[ISO_639-1::zh]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"01440df70248a7fa1a1db8f4200df524">
+		["build_uid"] = <"24e6ca74-2ae3-3ff2-ba51-b381c0224278">
+	>
+
+definition
+	COMPOSITION[at0000] matches {    -- perioperative_common
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {
+					[openehr::433]
+				}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0001] matches {    -- Item tree
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0004] occurrences matches {0..1} matches {    -- surgery_id
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["zh"] = <
+			items = <
+				["at0000"] = <
+					text = <"perioperative_common">
+					description = <"perioperative_common">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"surgery_id">
+					description = <"">
+				>
+			>
+		>
+	>
